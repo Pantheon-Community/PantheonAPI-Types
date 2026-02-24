@@ -1,3 +1,12 @@
 # PantheonAPI-Types
 
 Shared types for Pantheon API related services.
+
+This repository is intended to be used as a submodule for the [Pantheon API](https://github.com/Pantheon-Community/PantheonAPI) and its clients.
+
+For improved developer experience with submodules, use the following commands:
+
+```sh
+git config --global submodule.recurse true
+git config --global push.recurseSubmodules on-demand
+```
