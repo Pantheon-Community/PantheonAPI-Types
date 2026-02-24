@@ -1,4 +1,4 @@
-# PantheonAPI-Types
+# PantheonAPI-Types [![CI](https://github.com/Pantheon-Community/PantheonAPI-Types/actions/workflows/ci.yml/badge.svg)](https://github.com/Pantheon-Community/PantheonAPI-Types/actions/workflows/ci.yml)
 
 Shared types for Pantheon API related services.
 
