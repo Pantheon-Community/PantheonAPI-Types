@@ -3,7 +3,7 @@ export enum GeneralPermissions {
 
 	EditRoles = 1 << 0,
 
-    ManageSessions = 1 << 1,
+	ManageSessions = 1 << 1,
 
-    SeeUserDashboard = 1 << 2,
+	SeeUserDashboard = 1 << 2,
 }
