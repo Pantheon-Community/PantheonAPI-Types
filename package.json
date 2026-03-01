@@ -4,7 +4,8 @@
     "scripts": {
         "lint": "biome check",
         "lint-fix": "biome check --write",
-        "typecheck": "bun run tsc"
+        "typecheck": "bun run tsc",
+        "check-all": "bun run lint && bun run typecheck"
     },
     "devDependencies": {
         "@biomejs/biome": "^2.4.4",

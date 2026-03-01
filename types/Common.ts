@@ -46,3 +46,21 @@ export type UserToken = Brand<string, "userToken">;
  * @example "dd61ae073412c7738e687847c658e94a"
  */
 export type PluginToken = Brand<string, "pluginToken">;
+
+/**
+ * An IP address, not uniformly structured!
+ *
+ * @example "152.143.112.125"
+ * @example "::ffff:127.0.0.1"
+ * @example "6ae1:c1b3:ac70:af3e:643b:bc3e:fda4:3e9b"
+ */
+export type Ip = Brand<string, "ip">;
+
+/**
+ * Browser and other software information.
+ *
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Navigator/userAgent MDN Reference}
+ *
+ * @example "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:148.0) Gecko/20100101 Firefox/148.0"
+ */
+export type UserAgent = Brand<string, "userAgent">;

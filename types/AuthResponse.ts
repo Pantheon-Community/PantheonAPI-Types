@@ -1,14 +1,15 @@
-import type { UserToken } from "./Common";
-import type { SteamConnection } from "./SteamConnection";
+import type { IsoString, UserToken } from "./Common";
+import type { SteamUser } from "./SteamUser";
 import type { User } from "./User";
 
 export interface AuthResponse {
 	readonly user: User;
 
-	readonly steamConnections: SteamConnection[];
+	/** All the steam connections for this user, including their main one. */
+	readonly steamUsers: SteamUser[];
 
 	/** Seconds until session expires. */
-	readonly expiresIn: number;
+	readonly expiresAt: IsoString;
 
 	readonly token: UserToken;
 }
