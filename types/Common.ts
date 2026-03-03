@@ -16,7 +16,7 @@ export type IsoString = Brand<string, "isoString">;
  *
  * @see {@link https://discord.com/developers/docs/reference#snowflakes}
  *
- * @example "909645967081476147"
+ * @example "240312568273436674"
  */
 export type DiscordId = Brand<string, "discordIdString">;
 
