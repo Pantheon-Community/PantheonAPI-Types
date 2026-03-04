@@ -2,14 +2,16 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "lint": "biome check",
-        "lint-fix": "biome check --write",
-        "typecheck": "bun run tsc",
+        "lint": "oxlint",
+        "lint-fix": "oxlint --fix",
+        "typecheck": "tsc",
         "check-all": "bun run lint && bun run typecheck"
     },
     "devDependencies": {
-        "@biomejs/biome": "^2.4.4",
-        "@types/bun": "latest"
+        "@types/bun": "latest",
+        "oxfmt": "^0.36.0",
+        "oxlint": "^1.51.0",
+        "oxlint-tsgolint": "^0.16.0"
     },
     "peerDependencies": {
         "typescript": "^5.9.3"
