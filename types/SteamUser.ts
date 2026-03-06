@@ -27,6 +27,8 @@ export interface SteamUser {
     readonly timesSeen: number;
 }
 
+export type SteamUserBasic = Pick<SteamUser, "id" | "username">;
+
 export type SteamUserBasicWithTimes = Pick<
     SteamUser,
     "id" | "username" | "firstSeenAt" | "lastSeenAt"

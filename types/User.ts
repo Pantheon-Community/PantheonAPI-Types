@@ -21,4 +21,6 @@ export interface User {
     readonly lifetimeActionCount: number;
 }
 
+export type UserBasic = Pick<User, "id" | "username" | "avatar">;
+
 export type UserBasicWithSteam = Pick<User, "id" | "username" | "avatar" | "steam">;

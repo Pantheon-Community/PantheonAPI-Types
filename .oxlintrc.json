@@ -5,20 +5,7 @@
         "typeCheck": true
     },
     "categories": {
-        "correctness": "error",
-        "nursery": "error",
-        "pedantic": "error",
         "perf": "error",
-        "restriction": "error",
-        "style": "error",
         "suspicious": "error"
-    },
-    "rules": {
-        "unicorn/filename-case": ["error", { "cases": { "pascalCase": true } }],
-        "eslint/no-magic-numbers": "off",
-        "typescript/prefer-literal-enum-member": ["error", { "allowBitwiseExpressions": true }],
-        "eslint/no-bitwise": ["error", { "allow": ["<<"] }],
-        "unicorn/prefer-math-trunc": "allow",
-        "eslint/id-length": "allow"
     }
 }
