@@ -1,7 +1,7 @@
 import type { SteamUser } from "./SteamUser";
 import type { User } from "./User";
 
-export interface BySteamDiscordUser {
+export interface UserFromSteam {
     readonly steamId: SteamUser["id"];
 
     readonly discordId: User["id"];

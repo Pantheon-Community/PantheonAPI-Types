@@ -1,5 +1,5 @@
-import type { DiscordId, Ip, IsoString, UserAgent } from "./Common";
-import type { SteamUser } from "./SteamUser";
+import type { DiscordId, Ip, IsoString, Origin, UserAgent } from "./Common";
+import type { SteamUserBasicWithTimes } from "./SteamUser";
 
 export interface User {
     readonly id: DiscordId;
@@ -8,15 +8,17 @@ export interface User {
 
     readonly avatar: string | null;
 
-    readonly steam: SteamUser | null;
+    readonly steam: SteamUserBasicWithTimes | null;
 
     readonly firstSeenAt: IsoString;
 
     readonly lastSeenAt: IsoString;
 
-    readonly ip: Ip;
+    readonly ip: Ip | null;
 
-    readonly userAgent: UserAgent;
+    readonly userAgent: UserAgent | null;
+
+    readonly origin: Origin | null;
 
     readonly lifetimeActionCount: number;
 }

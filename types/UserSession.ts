@@ -1,6 +1,16 @@
-import type { DiscordId, Ip, IsoString, UserAgent, UserToken } from "./Common";
+import type {
+    DiscordId,
+    Ip,
+    IsoString,
+    Origin,
+    UserAgent,
+    UserSessionId,
+    UserToken,
+} from "./Common";
 
 export interface UserSession {
+    readonly id: UserSessionId;
+
     readonly accessToken: UserToken;
 
     readonly refreshToken: UserToken;
@@ -13,9 +23,11 @@ export interface UserSession {
 
     readonly userId: DiscordId;
 
-    readonly ip: Ip;
+    readonly ip: Ip | null;
 
-    readonly userAgent: UserAgent;
+    readonly userAgent: UserAgent | null;
+
+    readonly origin: Origin | null;
 
     /** This does not include the creation or refreshing of the session. */
     readonly actionCount: number;
@@ -23,4 +35,7 @@ export interface UserSession {
     readonly lastActionAt: IsoString;
 }
 
-export type UserSessionBasic = Pick<UserSession, "startedAt" | "ip" | "userAgent" | "lastActionAt">;
+export type UserSessionBasic = Pick<
+    UserSession,
+    "id" | "startedAt" | "ip" | "userAgent" | "origin" | "lastActionAt"
+>;

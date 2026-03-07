@@ -64,3 +64,19 @@ export type Ip = Brand<string, "ip">;
  * @example "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:148.0) Gecko/20100101 Firefox/148.0"
  */
 export type UserAgent = Brand<string, "userAgent">;
+
+/**
+ * An origin URL of a client.
+ *
+ * @example "http://localhost:5000"
+ * @example "https://dev.pantheoncommunity.org"
+ */
+export type Origin = Brand<string, "userOrigin">;
+
+/**
+ * Way of uniquely referring to a user session.
+ *
+ * Although the `accessToken` field of a user session is also unique, using it to externally
+ * identify user sessions has obvious security drawbacks.
+ */
+export type UserSessionId = Brand<string, "userSessionId">;
