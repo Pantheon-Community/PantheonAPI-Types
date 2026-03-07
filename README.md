@@ -8,7 +8,7 @@ This repository is intended to be used as a submodule for the Pantheon API and i
 
 - [Github Repository](https://github.com/Pantheon-Community/PantheonAPI-Types)
 - [Pantheon API](https://github.com/Pantheon-Community/PantheonAPI)
-- [Example Client](https://github.com/Pantheon-Community/PantheonAPI-Client)
+- [Dev Client](https://github.com/Pantheon-Community/PantheonAPI-Client)
 
 ### Config
 
@@ -21,7 +21,7 @@ git config --global push.recurseSubmodules on-demand
 
 ### Installation
 
-Add using git submodules:
+Add this repository to your project using git submodules:
 
 ```sh
 git submodule add https://github.com/Pantheon-Community/PantheonAPI-Types.git shared
