@@ -1,15 +1,19 @@
 import type { DiscordId, Ip, IsoString, Origin, UserAgent } from "./Common";
 import type { SteamUserBasicWithTimes } from "./SteamUser";
 
-export interface User {
+export interface UserBasic {
     readonly id: DiscordId;
 
     readonly username: string;
 
     readonly avatar: string | null;
+}
 
-    readonly steam: SteamUserBasicWithTimes | null;
+export interface UserBasicWithSteam extends UserBasic {
+    steam: SteamUserBasicWithTimes | null;
+}
 
+export interface User extends UserBasicWithSteam {
     readonly firstSeenAt: IsoString;
 
     readonly lastSeenAt: IsoString;
@@ -22,7 +26,3 @@ export interface User {
 
     readonly lifetimeActionCount: number;
 }
-
-export type UserBasic = Pick<User, "id" | "username" | "avatar">;
-
-export type UserBasicWithSteam = Pick<User, "id" | "username" | "avatar" | "steam">;
