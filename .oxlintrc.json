@@ -1,4 +1,5 @@
 {
+    // https://oxc.rs/docs/guide/usage/linter/config.html
     "$schema": "./node_modules/oxlint/configuration_schema.json",
     "options": {
         "typeAware": true,
