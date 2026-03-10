@@ -8,20 +8,10 @@ import type {
     UserToken,
 } from "./Common";
 
-export interface UserSession {
+export interface UserSessionBasic {
     readonly id: UserSessionId;
 
-    readonly accessToken: UserToken;
-
-    readonly refreshToken: UserToken;
-
     readonly startedAt: IsoString;
-
-    readonly expiresAt: IsoString;
-
-    readonly timesRefreshed: number;
-
-    readonly userId: DiscordId;
 
     readonly ip: Ip | null;
 
@@ -29,13 +19,20 @@ export interface UserSession {
 
     readonly origin: Origin | null;
 
-    /** This does not include the creation or refreshing of the session. */
-    readonly actionCount: number;
-
     readonly lastActionAt: IsoString;
 }
 
-export type UserSessionBasic = Pick<
-    UserSession,
-    "id" | "startedAt" | "ip" | "userAgent" | "origin" | "lastActionAt"
->;
+export interface UserSession extends UserSessionBasic {
+    readonly accessToken: UserToken;
+
+    readonly refreshToken: UserToken;
+
+    readonly expiresAt: IsoString;
+
+    readonly timesRefreshed: number;
+
+    readonly userId: DiscordId;
+
+    /** This does not include the creation or refreshing of the session. */
+    readonly actionCount: number;
+}

@@ -7,4 +7,6 @@ export interface SteamUserFromDiscord {
     readonly steamId: SteamUser["id"];
 
     readonly steamUsername: SteamUser["username"];
+
+    readonly steamAvatar: SteamUser["avatar"];
 }

@@ -9,6 +9,14 @@ export interface SteamUserBasic {
      * This may come from in-game player info or a Discord user connection.
      */
     readonly username: string;
+
+    /** @example "https://avatars.fastly.steamstatic.com/d789a47289ccb8c36eea2055a9b700e7718c6fac_full.jpg" */
+    readonly avatar: string | null;
+
+    /** @example "New Zealand" */
+    readonly location: string | null;
+
+    readonly memberSince: IsoString | null;
 }
 
 export interface SteamUserBasicWithTimes extends SteamUserBasic {

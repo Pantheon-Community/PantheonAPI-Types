@@ -1,7 +1,5 @@
 import type { Brand } from "./Util";
 
-export type HexColorString = `#${string}`;
-
 /**
  * A string in ISO format, used to store dates.
  *
