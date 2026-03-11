@@ -27,7 +27,6 @@
         "target": "ESNext",
 
         // Completeness
-        "skipLibCheck": true,
         "noUnusedLocals": true
     },
 
