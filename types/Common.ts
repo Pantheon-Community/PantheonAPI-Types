@@ -77,4 +77,4 @@ export type Origin = Brand<string, "userOrigin">;
  * Although the `accessToken` field of a user session is also unique, using it to externally
  * identify user sessions has obvious security drawbacks.
  */
-export type UserSessionId = Brand<string, "userSessionId">;
+export type UserSessionId = Brand<number, "userSessionId">;
