@@ -1,4 +1,4 @@
-import type { DiscordId, Ip, IsoString, Origin, UserAgent } from "./Common";
+import type { DiscordId, Ip, IsoString, Origin, RoleId, UserAgent } from "./Common";
 import type { SteamUserBasicWithTimes } from "./SteamUser";
 
 export interface UserBasic {
@@ -13,7 +13,11 @@ export interface UserBasicWithSteam extends UserBasic {
     steam: SteamUserBasicWithTimes | null;
 }
 
-export interface User extends UserBasicWithSteam {
+export interface UserBasicWithRoles extends UserBasic {
+    roleIds: RoleId[];
+}
+
+export interface User extends UserBasicWithSteam, UserBasicWithRoles {
     readonly firstSeenAt: IsoString;
 
     readonly lastSeenAt: IsoString;

@@ -1,4 +1,4 @@
-import type { IsoString, UserSessionId, UserToken } from "../Common";
+import type { IsoString, RoleId, UserSessionId, UserToken } from "../Common";
 import type { GetMeResponse } from "./GetMeResponse";
 
 export interface AuthResponse extends GetMeResponse {
@@ -7,4 +7,6 @@ export interface AuthResponse extends GetMeResponse {
     readonly token: UserToken;
 
     readonly sessionId: UserSessionId;
+
+    readonly roleIds: RoleId[];
 }

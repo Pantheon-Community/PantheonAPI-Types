@@ -78,3 +78,7 @@ export type Origin = Brand<string, "userOrigin">;
  * identify user sessions has obvious security drawbacks.
  */
 export type UserSessionId = Brand<number, "userSessionId">;
+
+export type RoleId = Brand<number, "roleId">;
+
+export type RoleLevel = Brand<number, "roleLevel">;

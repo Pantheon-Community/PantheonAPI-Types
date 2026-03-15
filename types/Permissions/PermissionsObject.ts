@@ -1,8 +1,8 @@
-import type { EconomyPermissions } from "./EconomyPermissions";
 import type { GeneralPermissions } from "./GeneralPermissions";
+import type { UserPermissions } from "./UserPermissions";
 
 export interface PermissionsObject {
     readonly generalPermissions: GeneralPermissions;
 
-    readonly economyPermissions: EconomyPermissions;
+    readonly userPermissions: UserPermissions;
 }
