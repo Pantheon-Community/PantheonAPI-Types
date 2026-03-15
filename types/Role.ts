@@ -1,16 +1,20 @@
 import type { RoleId, RoleLevel } from "./Common";
 import type { PermissionsObject } from "./Permissions/PermissionsObject";
 
-export interface Role {
-    readonly id: RoleId;
+export interface RoleBasic {
+    readonly level: RoleLevel;
 
+    readonly permissions: PermissionsObject;
+}
+
+export interface RoleWithoutId extends RoleBasic {
     readonly name: string;
 
     readonly icon: string | null;
 
     readonly category: string | null;
+}
 
-    readonly level: RoleLevel;
-
-    readonly permissions: PermissionsObject;
+export interface Role extends RoleWithoutId {
+    readonly id: RoleId;
 }
