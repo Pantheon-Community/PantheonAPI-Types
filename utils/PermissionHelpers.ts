@@ -4,6 +4,10 @@ import type { PermissionsObject } from "../types/Permissions/PermissionsObject";
 import { UserPermissions } from "../types/Permissions/UserPermissions";
 import type { RoleBasic } from "../types/Role";
 
+export interface FlattenedPermissions extends PermissionsObject {
+    highestRoleLevel: RoleLevel;
+}
+
 function biggestValue(x: Record<string | number, string | number>): number {
     let biggest = 0;
 
@@ -34,15 +38,31 @@ export function split<T extends GeneralPermissions | UserPermissions>(x: T): T[]
     return values;
 }
 
-export function hasPermission<T extends GeneralPermissions | UserPermissions>(
-    source: T,
-    target: T,
-): boolean {
+function hasPermissionInternal(source: number, target: number): boolean {
     return (source & target) === target;
 }
 
-export interface FlattenedPermissions extends PermissionsObject {
-    highestRoleLevel: RoleLevel;
+export function hasPermission(
+    source: FlattenedPermissions,
+    target: Partial<PermissionsObject>,
+): boolean {
+    const { generalPermissions, userPermissions } = target;
+
+    if (
+        generalPermissions !== undefined &&
+        !hasPermissionInternal(source.generalPermissions, generalPermissions)
+    ) {
+        return false;
+    }
+
+    if (
+        userPermissions !== undefined &&
+        !hasPermissionInternal(source.userPermissions, userPermissions)
+    ) {
+        return false;
+    }
+
+    return true;
 }
 
 export function flattenPermissions(...roles: RoleBasic[]): FlattenedPermissions {
