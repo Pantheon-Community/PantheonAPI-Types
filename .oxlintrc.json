@@ -8,5 +8,8 @@
     "categories": {
         "perf": "error",
         "suspicious": "error"
+    },
+    "rules": {
+        "typescript/no-unsafe-type-assertion": "allow"
     }
 }
