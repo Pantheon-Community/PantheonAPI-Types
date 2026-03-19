@@ -1,4 +1,5 @@
-import type { DiscordId, Ip, IsoString, Origin, RoleId, UserAgent } from "./Common";
+import type { DiscordId, Ip, IsoString, Origin, UserAgent } from "./Common";
+import type { RoleId } from "./Role";
 import type { SteamUserBasicWithTimes } from "./SteamUser";
 
 export interface UserBasic {

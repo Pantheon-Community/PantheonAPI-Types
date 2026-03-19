@@ -1,12 +1,13 @@
-import type {
-    DiscordId,
-    Ip,
-    IsoString,
-    Origin,
-    UserAgent,
-    UserSessionId,
-    UserToken,
-} from "./Common";
+import type { DiscordId, Ip, IsoString, Origin, UserAgent, UserToken } from "./Common";
+import type { Brand } from "./Util";
+
+/**
+ * Way of uniquely referring to a user session.
+ *
+ * Although the `accessToken` field of a user session is also unique, using it to externally
+ * identify user sessions has obvious security drawbacks.
+ */
+export type UserSessionId = Brand<number, "userSessionId">;
 
 export interface UserSessionBasic {
     readonly id: UserSessionId;

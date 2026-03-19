@@ -1,8 +1,7 @@
-import type { RoleLevel } from "../types/Common";
 import { GeneralPermissions } from "../types/Permissions/GeneralPermissions";
 import type { PermissionsObject } from "../types/Permissions/PermissionsObject";
 import { UserPermissions } from "../types/Permissions/UserPermissions";
-import type { RoleBasic } from "../types/Role";
+import type { RoleBasic, RoleLevel } from "../types/Role";
 
 export interface FlattenedPermissions extends PermissionsObject {
     highestRoleLevel: RoleLevel;
