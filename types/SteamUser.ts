@@ -1,6 +1,26 @@
-import type { IsoString, SteamId64 } from "./Common";
+import type { IsoString } from "./Common";
+import type { Brand } from "./Util";
 
-export interface SteamUserBasic {
+/**
+ * A SteamID64 account identifier.
+ *
+ * @see {@link https://steamid.io/}
+ *
+ * @example "76561198200316171"
+ */
+export type SteamId64 = Brand<string, "steamId64">;
+
+/** Information about a Steam user's in-game activity. */
+export interface SteamUserAnalytics {
+    readonly firstSeenAt: IsoString;
+
+    readonly lastSeenAt: IsoString;
+
+    readonly timesSeen: number;
+}
+
+/** Steam user information, sourced from either in-game player info or Discord user connections. */
+export interface SteamUser {
     readonly id: SteamId64;
 
     /**
@@ -17,18 +37,16 @@ export interface SteamUserBasic {
     readonly location: string | null;
 
     readonly memberSince: IsoString | null;
+
+    readonly analytics: SteamUserAnalytics | null;
 }
 
-export interface SteamUserBasicWithTimes extends SteamUserBasic {
-    /** When this Steam ID was first seen in-game. */
-    readonly firstSeenAt: IsoString | null;
+export type SteamUserBasic = Pick<
+    SteamUser,
+    "id" | "username" | "avatar" | "location" | "memberSince"
+>;
 
-    /** When this Steam ID was last seen in-game. */
-    readonly lastSeenAt: IsoString | null;
-}
-
-/** Steam user information, sourced from either in-game player info or Discord user connections. */
-export interface SteamUser extends SteamUserBasicWithTimes {
-    /** Number of times this Steam ID has been seen in-game. */
-    readonly timesSeen: number;
-}
+export type SteamUserBasicWithTimes = Pick<
+    SteamUser,
+    "id" | "username" | "avatar" | "location" | "memberSince" | "analytics"
+>;

@@ -5,20 +5,20 @@ export type RoleId = Brand<number, "roleId">;
 
 export type RoleLevel = Brand<number, "roleLevel">;
 
-export interface RoleBasic {
-    readonly level: RoleLevel;
+export interface Role {
+    readonly id: RoleId;
 
-    readonly permissions: PermissionsObject;
-}
-
-export interface RoleWithoutId extends RoleBasic {
     readonly name: string;
 
     readonly icon: string | null;
 
+    readonly level: RoleLevel;
+
+    readonly permissions: PermissionsObject;
+
     readonly category: string | null;
 }
 
-export interface Role extends RoleWithoutId {
-    readonly id: RoleId;
-}
+export type RoleBasic = Pick<Role, "level" | "permissions">;
+
+export type RoleInput = Omit<Role, "id">;

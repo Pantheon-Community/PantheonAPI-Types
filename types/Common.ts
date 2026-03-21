@@ -19,15 +19,6 @@ export type IsoString = Brand<string, "isoString">;
 export type DiscordId = Brand<string, "discordIdString">;
 
 /**
- * A SteamID64 account identifier.
- *
- * @see {@link https://steamid.io/}
- *
- * @example "76561198200316171"
- */
-export type SteamId64 = Brand<string, "steamId64">;
-
-/**
  * An authorization token used by our users.
  *
  * Also serves as a Discord OAuth2 access token.

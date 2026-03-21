@@ -9,7 +9,7 @@ import type { Brand } from "./Util";
  */
 export type UserSessionId = Brand<number, "userSessionId">;
 
-export interface UserSessionBasic {
+export interface UserSession {
     readonly id: UserSessionId;
 
     readonly startedAt: IsoString;
@@ -21,9 +21,7 @@ export interface UserSessionBasic {
     readonly origin: Origin | null;
 
     readonly lastActionAt: IsoString;
-}
 
-export interface UserSession extends UserSessionBasic {
     readonly accessToken: UserToken;
 
     readonly refreshToken: UserToken;
@@ -37,3 +35,8 @@ export interface UserSession extends UserSessionBasic {
     /** This does not include the creation or refreshing of the session. */
     readonly actionCount: number;
 }
+
+export type UserSessionBasic = Pick<
+    UserSession,
+    "id" | "startedAt" | "ip" | "userAgent" | "origin" | "lastActionAt"
+>;
