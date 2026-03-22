@@ -42,7 +42,7 @@ function hasPermissionInternal(source: number, target: number): boolean {
 }
 
 export function hasPermission(
-    source: FlattenedPermissions,
+    source: PermissionsObject,
     target: Partial<PermissionsObject>,
 ): boolean {
     const { generalPermissions, userPermissions } = target;
