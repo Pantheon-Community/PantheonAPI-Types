@@ -29,7 +29,7 @@ export const UserPermissionsInfo: Record<UserPermissions, PermissionsInfo> = {
 
     [UserPermissions.ViewUserSessions]: {
         name: "View User Sessions",
-        description: "See where users are logged in, this is sensitive information.",
+        description: "See sensitive user login information like IP address and browser.",
     },
 
     [UserPermissions.DeleteUserSessions]: {
