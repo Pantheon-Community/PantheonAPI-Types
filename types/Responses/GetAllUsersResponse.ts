@@ -1,6 +1,6 @@
 import type { WithPagination } from "../Pagination";
 import type { RoleId } from "../Role";
-import type { SteamUserBasicWithTimes } from "../SteamUser";
+import type { SteamUserWithTimes } from "../SteamUser";
 import type { User, UserBasic } from "../User";
 
 export interface UserFromGetAll
@@ -12,7 +12,7 @@ export interface UserFromGetAll
         > {
     roleIds: RoleId[];
 
-    steam?: SteamUserBasicWithTimes | null;
+    steam?: SteamUserWithTimes | null;
 }
 
 export type GetAllUsersResponse = WithPagination<UserFromGetAll>;

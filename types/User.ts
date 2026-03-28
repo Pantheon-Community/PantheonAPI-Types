@@ -1,5 +1,5 @@
 import type { DiscordId, Ip, IsoString, Origin, UserAgent } from "./Common";
-import type { SteamUserBasicWithTimes } from "./SteamUser";
+import type { SteamUserWithTimes } from "./SteamUser";
 
 export interface User {
     readonly id: DiscordId;
@@ -8,7 +8,7 @@ export interface User {
 
     readonly avatar: string | null;
 
-    readonly steam: SteamUserBasicWithTimes | null;
+    readonly steam: SteamUserWithTimes | null;
 
     readonly firstSeenAt: IsoString;
 
