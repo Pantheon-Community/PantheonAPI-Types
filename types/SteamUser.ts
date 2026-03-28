@@ -46,7 +46,5 @@ export type SteamUserBasic = Pick<
     "id" | "username" | "avatar" | "location" | "memberSince"
 >;
 
-export type SteamUserBasicWithTimes = Pick<
-    SteamUser,
-    "id" | "username" | "avatar" | "location" | "memberSince" | "analytics"
->;
+// todo: rename this to SteamUserWithTimes
+export interface SteamUserBasicWithTimes extends SteamUserBasic, Pick<SteamUser, "analytics"> {}

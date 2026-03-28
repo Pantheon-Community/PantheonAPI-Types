@@ -14,15 +14,15 @@ export interface User {
 
     readonly lastSeenAt: IsoString;
 
+    readonly lifetimeActionCount: number;
+
     readonly ip: Ip | null;
 
     readonly userAgent: UserAgent | null;
 
     readonly origin: Origin | null;
-
-    readonly lifetimeActionCount: number;
 }
 
 export type UserBasic = Pick<User, "id" | "username" | "avatar">;
 
-export type UserBasicWithSteam = Pick<User, "id" | "username" | "avatar" | "steam">;
+export interface UserWithSteam extends UserBasic, Pick<User, "steam"> {}

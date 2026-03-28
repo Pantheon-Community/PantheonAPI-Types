@@ -10,6 +10,7 @@
         "suspicious": "error"
     },
     "rules": {
-        "typescript/no-unsafe-type-assertion": "allow"
+        "typescript/no-unsafe-type-assertion": "allow",
+        "unicorn/prefer-node-protocol": "error"
     }
 }

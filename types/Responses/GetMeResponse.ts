@@ -1,8 +1,8 @@
 import type { SteamUserBasicWithTimes } from "../SteamUser";
-import type { UserBasicWithSteam } from "../User";
+import type { UserWithSteam } from "../User";
 
 export interface GetMeResponse {
-    readonly user: UserBasicWithSteam;
+    readonly user: UserWithSteam;
 
     readonly steamUsers: SteamUserBasicWithTimes[];
 }
