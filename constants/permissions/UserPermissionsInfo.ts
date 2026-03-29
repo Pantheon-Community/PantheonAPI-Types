@@ -4,41 +4,41 @@ import { type PermissionsInfo, NONE } from "./PermissionsInfo";
 export const UserPermissionsInfo: Record<UserPermissions, PermissionsInfo> = {
     [UserPermissions.None]: NONE,
 
-    [UserPermissions.ViewAllUsers]: {
-        name: "View All Users",
+    [UserPermissions.ViewAll]: {
+        name: "View All",
         description: "See all registered users. Includes their Discord ID, username, and avatar.",
     },
 
-    [UserPermissions.ViewUserConnections]: {
-        name: "View User Connections",
+    [UserPermissions.ViewConnections]: {
+        name: "View Connections",
         description:
             "See the primary Steam connection of users. Includes their Steam ID, username, and avatar.",
     },
 
-    [UserPermissions.ViewAllUserConnections]: {
-        name: "View All User Connections",
+    [UserPermissions.ViewAllConnections]: {
+        name: "View All Connections",
         description:
             "See ALL of the Steam connections of users, including non-primary and private ones.",
     },
 
-    [UserPermissions.ViewUserAnalytics]: {
-        name: "View User Analytics",
+    [UserPermissions.ViewAnalytics]: {
+        name: "View Analytics",
         description:
             "See when a user was first and last seen, and their total action count on the site.",
     },
 
-    [UserPermissions.ViewUserSessions]: {
-        name: "View User Sessions",
+    [UserPermissions.ViewSessions]: {
+        name: "View Sessions",
         description: "See sensitive user login information like IP address and browser.",
     },
 
-    [UserPermissions.DeleteUserSessions]: {
-        name: "Delete User Sessions",
+    [UserPermissions.DeleteSessions]: {
+        name: "Delete Sessions",
         description: "Delete sessions of other users, effectively logging them out from the site.",
     },
 
-    [UserPermissions.ManageUserRoles]: {
-        name: "Manage User Roles",
+    [UserPermissions.ManageRoles]: {
+        name: "Manage Roles",
         description: "Add and remove roles from other users and themselves.",
     },
 };
