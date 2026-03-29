@@ -1,4 +1,5 @@
 import type { IsoString } from "./Common";
+import type { UserBasic } from "./User";
 import type { Brand } from "./Util";
 
 /**
@@ -47,3 +48,7 @@ export type SteamUserBasic = Pick<
 >;
 
 export interface SteamUserWithTimes extends SteamUserBasic, Pick<SteamUser, "analytics"> {}
+
+export interface SteamUserWithTimesAndDiscord extends SteamUserWithTimes {
+    discord: UserBasic | null;
+}
