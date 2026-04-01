@@ -8,4 +8,9 @@ export const GeneralPermissionInfo: Record<GeneralPermissions, PermissionsInfo> 
         name: "Edit Roles",
         description: "Create, delete, and edit roles.",
     },
+
+    [GeneralPermissions.EditTokens]: {
+        name: "Edit Tokens",
+        description: "Create, delete, and edit plugin authorisation tokens.",
+    },
 };
