@@ -3,6 +3,7 @@ import type { RoleId } from "../Role";
 import type { SteamUserWithTimes } from "../SteamUser";
 import type { User, UserBasic } from "../User";
 
+// TODO: Move this to User.ts
 export interface UserFromGetAll
     extends
         UserBasic,
