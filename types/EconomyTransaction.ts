@@ -1,5 +1,6 @@
-import type { DiscordId, IsoString } from "./Common";
+import type { IsoString } from "./Common";
 import type { RewardId } from "./EconomyReward";
+import type { SteamId64 } from "./SteamUser";
 import type { Brand } from "./Util";
 
 export type TransactionId = Brand<number, "transactionId">;
@@ -9,9 +10,13 @@ export interface EconomyTransaction {
 
     readonly rewardId: RewardId;
 
-    readonly amount: number;
+    readonly cost: number;
 
     readonly madeAt: IsoString;
 
-    readonly purchaser: DiscordId;
+    readonly purchaser: SteamId64;
+}
+
+export interface CompletedEconomyTransaction extends EconomyTransaction {
+    readonly completedAt: IsoString;
 }
