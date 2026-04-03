@@ -6,6 +6,12 @@ export type RewardId = Brand<number, "rewardId">;
 export interface EconomyReward {
     readonly id: RewardId;
 
+    readonly title: string;
+
+    readonly subtitle: string;
+
+    readonly description: string;
+
     readonly image: string;
 
     readonly cost: number;
