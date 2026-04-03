@@ -13,4 +13,9 @@ export const GeneralPermissionInfo: Record<GeneralPermissions, PermissionsInfo> 
         name: "Edit Tokens",
         description: "Create, delete, and edit plugin authorisation tokens.",
     },
+
+    [GeneralPermissions.EditEconomyRewards]: {
+        name: "Edit Economy Rewards",
+        description: "Create, delete, and edit economy rewards.",
+    },
 };

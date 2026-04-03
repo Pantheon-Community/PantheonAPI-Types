@@ -21,6 +21,12 @@ export interface User {
     readonly userAgent: UserAgent | null;
 
     readonly origin: Origin | null;
+
+    readonly balance: number;
+
+    readonly lifetimeBalance: number;
+
+    readonly lifetimePurchaseCount: number;
 }
 
 export type UserBasic = Pick<User, "id" | "username" | "avatar">;
