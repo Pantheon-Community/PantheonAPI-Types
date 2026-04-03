@@ -1,8 +1,13 @@
 import type { SteamUserWithTimes } from "../SteamUser";
-import type { UserWithSteam } from "../User";
+import type { User, UserBasic } from "../User";
+
+export interface GetMeUser
+    extends
+        UserBasic,
+        Pick<User, "steam" | "balance" | "lifetimeBalance" | "lifetimePurchaseCount"> {}
 
 export interface GetMeResponse {
-    readonly user: UserWithSteam;
+    readonly user: GetMeUser;
 
     readonly steamUsers: SteamUserWithTimes[];
 }

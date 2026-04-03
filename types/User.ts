@@ -30,5 +30,3 @@ export interface User {
 }
 
 export type UserBasic = Pick<User, "id" | "username" | "avatar">;
-
-export interface UserWithSteam extends UserBasic, Pick<User, "steam"> {}
