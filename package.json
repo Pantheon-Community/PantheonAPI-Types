@@ -4,8 +4,10 @@
     "scripts": {
         "lint": "oxlint",
         "lint-fix": "oxlint --fix",
+        "format": "oxfmt --check",
+        "format-fix": "oxfmt",
         "typecheck": "tsc",
-        "check-all": "bun run lint && bun run typecheck"
+        "check-all": "bun run format && bun run lint && bun run typecheck"
     },
     "devDependencies": {
         "@types/bun": "latest",

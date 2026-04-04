@@ -18,8 +18,11 @@ jobs:
             - name: Install Dependencies
               run: bun install --frozen-lockfile
 
+            - name: Format
+              run: bunx oxfmt --check
+
             - name: Typecheck
               run: bun run typecheck
 
             - name: Lint
-              run: bunx oxlint --format=github
+              run: bunx oxlint --config .oxlintrc.json --format=github
