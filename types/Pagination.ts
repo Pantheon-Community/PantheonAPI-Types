@@ -32,6 +32,7 @@ export const PAGINATION_PARAMS = {
             perPage: {
                 ...SMALLINT,
                 minimum: 1,
+                maximum: 100,
                 description: "Maximum number of results to show per page.",
                 default: 10,
             },
