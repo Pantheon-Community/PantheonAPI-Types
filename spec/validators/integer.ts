@@ -5,6 +5,10 @@ function validateIntegerInternal(
     min: number,
     max: number,
 ): asserts input is number {
+    if (Number.isNaN(input)) {
+        throw new Error(`Must be an integer (got NaN).`);
+    }
+
     if (!Number.isSafeInteger(input)) {
         throw new Error(`Must be an integer (got ${getTypeName(typeof input)}).`);
     }
