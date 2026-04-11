@@ -294,8 +294,6 @@ export namespace OAS {
     }
 
     export interface Responses {
-        default?: Response | Reference;
-
         [key: string]: Response | Reference;
     }
 
