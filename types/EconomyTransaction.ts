@@ -49,3 +49,26 @@ export const ECONOMY_TRANSACTION = {
         purchaserId: STEAM_ID_64.validate,
     },
 } as const satisfies SpecObjectFor<EconomyTransaction>;
+
+export interface CompletedEconomyTransaction extends EconomyTransaction {
+    completedAt: IsoString;
+}
+
+export const COMPLETED_ECONOMY_TRANSACTION = {
+    schema: {
+        type: "object",
+        properties: {
+            ...ECONOMY_TRANSACTION.schema.properties,
+            completedAt: ISO_STRING.schema,
+        },
+        required: [...ECONOMY_TRANSACTION.schema.required, "completedAt"],
+        additionalProperties: false,
+    },
+    validate(input) {
+        validateObject(input, this);
+    },
+    subValidators: {
+        ...ECONOMY_TRANSACTION.subValidators,
+        completedAt: ISO_STRING.validate,
+    },
+} as const satisfies SpecObjectFor<CompletedEconomyTransaction>;
