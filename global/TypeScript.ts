@@ -4,4 +4,8 @@ declare global {
     interface Date {
         toISOString(): IsoString;
     }
+
+    interface NumberConstructor {
+        isSafeInteger(number: unknown): number is number;
+    }
 }

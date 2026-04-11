@@ -1,22 +1,51 @@
-import type { IsoString } from "./Common";
-import type { RewardId } from "./EconomyReward";
-import type { SteamId64 } from "./SteamUser";
-import type { Brand } from "./Util";
+import { INTEGER } from "../spec/schemas/integer";
+import { validateInteger } from "../spec/validators/integer";
+import { validateObject } from "../spec/validators/object";
+import { ISO_STRING, type IsoString } from "./Common";
+import { ECONOMY_REWARD_ID, type EconomyRewardId } from "./EconomyReward";
+import { STEAM_ID_64, type SteamId64 } from "./SteamUser";
+import type { Brand, SpecObject, SpecObjectFor } from "./Util";
 
-export type TransactionId = Brand<number, "transactionId">;
+export type EconomyTransactionId = Brand<number, "transactionId">;
+
+export const ECONOMY_TRANSACTION_ID = {
+    schema: INTEGER,
+    validate: validateInteger,
+} as const satisfies SpecObject;
 
 export interface EconomyTransaction {
-    readonly id: TransactionId;
+    id: EconomyTransactionId;
 
-    readonly rewardId: RewardId;
+    rewardId: EconomyRewardId;
 
-    readonly cost: number;
+    cost: number;
 
-    readonly madeAt: IsoString;
+    madeAt: IsoString;
 
-    readonly purchaser: SteamId64;
+    purchaserId: SteamId64;
 }
 
-export interface CompletedEconomyTransaction extends EconomyTransaction {
-    readonly completedAt: IsoString;
-}
+export const ECONOMY_TRANSACTION = {
+    schema: {
+        type: "object",
+        properties: {
+            id: ECONOMY_TRANSACTION_ID.schema,
+            rewardId: ECONOMY_REWARD_ID.schema,
+            cost: { ...INTEGER, minimum: 1 },
+            madeAt: ISO_STRING.schema,
+            purchaserId: STEAM_ID_64.schema,
+        },
+        required: ["id", "rewardId", "cost", "madeAt", "purchaserId"],
+        additionalProperties: false,
+    },
+    validate(input) {
+        validateObject(input, this);
+    },
+    subValidators: {
+        id: ECONOMY_TRANSACTION_ID.validate,
+        rewardId: ECONOMY_REWARD_ID.validate,
+        cost: (input) => validateInteger(input, 1),
+        madeAt: ISO_STRING.validate,
+        purchaserId: STEAM_ID_64.validate,
+    },
+} as const satisfies SpecObjectFor<EconomyTransaction>;

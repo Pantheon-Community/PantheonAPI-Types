@@ -15,10 +15,10 @@ export const UserPermissionsInfo: Record<UserPermissions, PermissionsInfo> = {
             "See the primary Steam connection of users. Includes their Steam ID, username, and avatar.",
     },
 
-    [UserPermissions.ViewAllConnections]: {
-        name: "View All Connections",
+    [UserPermissions.DeletePrimaryConnection]: {
+        name: "Delete Primary Connection",
         description:
-            "See ALL of the Steam connections of users, including non-primary and private ones.",
+            "Delete their primary Steam connection, removing the association between their Discord and Steam account.",
     },
 
     [UserPermissions.ViewAnalytics]: {
