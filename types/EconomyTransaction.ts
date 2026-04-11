@@ -50,7 +50,10 @@ export const ECONOMY_TRANSACTION = {
     },
 } as const satisfies SpecObjectFor<EconomyTransaction>;
 
-export interface CompletedEconomyTransaction extends EconomyTransaction {
+export interface CompletedEconomyTransaction extends Omit<EconomyTransaction, "rewardId"> {
+    /** This is `null` if the reward was deleted. */
+    rewardId: EconomyTransaction["rewardId"] | null;
+
     completedAt: IsoString;
 }
 
@@ -59,6 +62,11 @@ export const COMPLETED_ECONOMY_TRANSACTION = {
         type: "object",
         properties: {
             ...ECONOMY_TRANSACTION.schema.properties,
+            rewardId: {
+                ...ECONOMY_TRANSACTION.schema.properties.rewardId,
+                description: "This is `null` if the reward was deleted.",
+                nullable: true,
+            },
             completedAt: ISO_STRING.schema,
         },
         required: [...ECONOMY_TRANSACTION.schema.required, "completedAt"],
@@ -69,6 +77,7 @@ export const COMPLETED_ECONOMY_TRANSACTION = {
     },
     subValidators: {
         ...ECONOMY_TRANSACTION.subValidators,
+        rewardId: (input) => input === null || ECONOMY_REWARD_ID.validate(input),
         completedAt: ISO_STRING.validate,
     },
 } as const satisfies SpecObjectFor<CompletedEconomyTransaction>;
