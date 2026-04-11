@@ -15,8 +15,8 @@ export const ECONOMY_STATS = {
     schema: {
         type: "object",
         properties: {
-            balance: { ...INTEGER, minimum: 0 },
-            lifetimeBalance: { ...INTEGER, minimum: 0 },
+            balance: INTEGER,
+            lifetimeBalance: INTEGER,
             lifetimePurchaseCount: { ...INTEGER, minimum: 0 },
         },
         required: ["balance", "lifetimeBalance", "lifetimePurchaseCount"],
@@ -26,8 +26,8 @@ export const ECONOMY_STATS = {
         validateObject(input, this);
     },
     subValidators: {
-        balance: (input) => validateInteger(input, 0),
-        lifetimeBalance: (input) => validateInteger(input, 0),
+        balance: validateInteger,
+        lifetimeBalance: validateInteger,
         lifetimePurchaseCount: (input) => validateInteger(input, 0),
     },
 } as const satisfies SpecObjectFor<EconomyStats>;
