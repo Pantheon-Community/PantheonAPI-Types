@@ -12,6 +12,7 @@ export const PAGE_NUMBER = {
         ...SMALLINT,
         minimum: 0,
         description: "Page number, starts at 0.",
+        default: 0,
     },
     validate: (input) => validateSmallInt(input, 0),
 } as const satisfies SpecObject;
@@ -32,6 +33,7 @@ export const PAGINATION_PARAMS = {
                 ...SMALLINT,
                 minimum: 1,
                 description: "Maximum number of results to show per page.",
+                default: 0,
             },
         },
         required: [],
