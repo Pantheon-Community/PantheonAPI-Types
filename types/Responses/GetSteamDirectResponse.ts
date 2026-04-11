@@ -52,13 +52,8 @@ export const GET_STEAM_DIRECT_RESPONSE = {
     },
     subValidators: {
         steamUsers: (input) =>
-            validateArray(input, 0, Number.MAX_SAFE_INTEGER, STEAM_USER.validate.bind(STEAM_USER)),
+            validateArray(input, 0, Number.MAX_SAFE_INTEGER, (x) => STEAM_USER.validate(x)),
         users: (input) =>
-            validateArray(
-                input,
-                0,
-                Number.MAX_SAFE_INTEGER,
-                GET_DIRECT_USER.validate.bind(GET_DIRECT_USER),
-            ),
+            validateArray(input, 0, Number.MAX_SAFE_INTEGER, (x) => GET_DIRECT_USER.validate(x)),
     },
 } as const satisfies SpecObjectFor<GetSteamDirectResponse>;

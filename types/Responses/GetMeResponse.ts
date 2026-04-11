@@ -41,6 +41,6 @@ export const GET_ME_RESPONSE = {
     subValidators: {
         user: GET_ME_USER.validate.bind(GET_ME_USER),
         steamUsers: (input) =>
-            validateArray(input, 0, Number.MAX_SAFE_INTEGER, STEAM_USER.validate.bind(STEAM_USER)),
+            validateArray(input, 0, Number.MAX_SAFE_INTEGER, (x) => STEAM_USER.validate(x)),
     },
 } as const satisfies SpecObjectFor<GetMeResponse>;
