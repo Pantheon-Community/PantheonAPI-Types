@@ -18,10 +18,10 @@ export const PAGE_NUMBER = {
 } as const satisfies SpecObject;
 
 export interface PaginationParams {
-    page?: PageNumber;
+    page: PageNumber;
 
     /** Maximum number of results to show per page. */
-    perPage?: number;
+    perPage: number;
 }
 
 export const PAGINATION_PARAMS = {
@@ -33,7 +33,7 @@ export const PAGINATION_PARAMS = {
                 ...SMALLINT,
                 minimum: 1,
                 description: "Maximum number of results to show per page.",
-                default: 0,
+                default: 10,
             },
         },
         required: [],
@@ -43,7 +43,7 @@ export const PAGINATION_PARAMS = {
         validateObject(input, this);
     },
     subValidators: {
-        page: (input) => input === undefined || PAGE_NUMBER.validate,
+        page: (input) => input === undefined || PAGE_NUMBER.validate(input),
         perPage: (input) => input === undefined || validateSmallInt(input, 1),
     },
 } as const satisfies SpecObjectFor<PaginationParams>;
