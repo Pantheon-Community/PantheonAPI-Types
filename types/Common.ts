@@ -71,26 +71,6 @@ export const USER_TOKEN = {
 } as const satisfies SpecObject;
 
 /**
- * An authorisation token used by our SCP:SL plugins.
- *
- * @example "dd61ae073412c7738e687847c658e94a"
- */
-export type PluginToken = Brand<string, "pluginToken">;
-
-const pluginTokenRegExp = new RegExp(/^[a-z0-9]+$/);
-
-export const PLUGIN_TOKEN = {
-    schema: {
-        type: "string",
-        description: "An authorisation token used by our SCP:SL plugins.",
-        example: "dd61ae073412c7738e687847c658e94a",
-        minLength: 32,
-        maxLength: 32,
-    },
-    validate: (input) => validateStringFormatted(input, 32, 32, pluginTokenRegExp),
-} as const satisfies SpecObject;
-
-/**
  * An IP address, not uniformly structured!
  *
  * @example "152.143.112.125"
