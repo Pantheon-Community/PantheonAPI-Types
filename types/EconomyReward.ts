@@ -58,6 +58,8 @@ export interface EconomyReward {
 
     description: string;
 
+    category: string;
+
     image: string;
 
     /** How much this reward **currently** costs. */
@@ -92,6 +94,7 @@ export const ECONOMY_REWARD = {
             title: STRING(1, 64, "title"),
             subtitle: STRING(0, 128, "subtitle"),
             description: STRING(0, 1024, "description"),
+            category: STRING(0, 128, "category"),
             image: STRING(0, 128, "image"),
             cost: {
                 ...INTEGER,
@@ -129,6 +132,7 @@ export const ECONOMY_REWARD = {
             "title",
             "subtitle",
             "description",
+            "category",
             "image",
             "cost",
             "normalCost",
@@ -148,6 +152,7 @@ export const ECONOMY_REWARD = {
         title: (input) => validateString(input, 1, 64),
         subtitle: (input) => validateString(input, 0, 128),
         description: (input) => validateString(input, 0, 1024),
+        category: (input) => validateString(input, 0, 128),
         image: (input) => validateString(input, 0, 128),
         cost: validateInteger,
         normalCost: validateInteger,
