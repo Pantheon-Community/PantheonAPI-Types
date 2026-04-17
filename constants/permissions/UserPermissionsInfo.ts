@@ -1,5 +1,5 @@
 import { UserPermissions } from "../../types/Permissions/UserPermissions";
-import { type PermissionsInfo, NONE } from "./PermissionsInfo";
+import { NONE, type PermissionsInfo } from "./PermissionsInfo";
 
 export const UserPermissionsInfo: Record<UserPermissions, PermissionsInfo> = {
     [UserPermissions.None]: NONE,
