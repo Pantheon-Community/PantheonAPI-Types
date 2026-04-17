@@ -1,6 +1,8 @@
 import { INTEGER } from "../../spec/schemas/integer";
+import { STRING } from "../../spec/schemas/string";
 import { validateInteger } from "../../spec/validators/integer";
 import { validateObject } from "../../spec/validators/object";
+import { validateString } from "../../spec/validators/string";
 import { STEAM_ID_64, STEAM_USER, type SteamId64 } from "../SteamUser";
 import type { SpecObjectFor } from "../Util";
 
@@ -10,6 +12,8 @@ export interface EarningsRequest {
     username: string;
 
     balanceInc: number;
+
+    groupName: string;
 }
 
 export const EARNINGS_REQUEST = {
@@ -22,8 +26,9 @@ export const EARNINGS_REQUEST = {
                 ...INTEGER,
                 minimum: 1,
             },
+            groupName: STRING(0, 64, "group"),
         },
-        required: ["steamId", "username", "balanceInc"],
+        required: ["steamId", "username", "balanceInc", "groupName"],
         additionalProperties: false,
     },
     validate(input) {
@@ -33,5 +38,6 @@ export const EARNINGS_REQUEST = {
         steamId: STEAM_ID_64.validate,
         username: STEAM_USER.subValidators.username,
         balanceInc: (input) => validateInteger(input, 1),
+        groupName: (input) => validateString(input, 0, 64),
     },
 } as const satisfies SpecObjectFor<EarningsRequest>;
