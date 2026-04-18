@@ -2,7 +2,7 @@ import { INTEGER } from "../spec/schemas/integer";
 import { STRING } from "../spec/schemas/string";
 import { validateInteger } from "../spec/validators/integer";
 import { validateObject } from "../spec/validators/object";
-import { validateString, validateStringFormatted } from "../spec/validators/string";
+import { validateString } from "../spec/validators/string";
 import { ISO_STRING, type IsoString } from "./Common";
 import { ECONOMY_STATS, type EconomyStats } from "./EconomyStats";
 import type { Brand, SpecObject, SpecObjectFor } from "./Util";
@@ -16,7 +16,7 @@ import type { Brand, SpecObject, SpecObjectFor } from "./Util";
  */
 export type SteamId64 = Brand<string, "steamId64">;
 
-const steamId64RegExp = new RegExp(/^(seed-)?[0-9]+$/);
+// const steamId64RegExp = new RegExp(/^(seed-)?[0-9]+$/);
 
 export const STEAM_ID_64 = {
     schema: {
@@ -26,7 +26,8 @@ export const STEAM_ID_64 = {
         minLength: 17,
         maxLength: 18,
     },
-    validate: (input) => validateStringFormatted(input, 17, 18, steamId64RegExp),
+    // validate: (input) => validateStringFormatted(input, 17, 18, steamId64RegExp),
+    validate: (input) => validateString(input, 0, 30),
 } as const satisfies SpecObject;
 
 export interface SteamUserAnalytics {
