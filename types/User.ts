@@ -26,6 +26,7 @@ export interface User {
 
     fingerprint: Fingerprint;
 
+    /** @deprecated Economy stats are tied to Steam users now. */
     economyStats: EconomyStats;
 }
 
@@ -41,7 +42,11 @@ export const USER = {
             lastSeenAt: ISO_STRING.schema,
             lifetimeActionCount: { ...INTEGER, minimum: 0 },
             fingerprint: FINGERPRINT.schema,
-            economyStats: ECONOMY_STATS.schema,
+            economyStats: {
+                ...ECONOMY_STATS.schema,
+                deprecated: true,
+                description: "**Deprecated** - Economy stats are tied to Steam users now.",
+            },
         },
         required: [
             "id",

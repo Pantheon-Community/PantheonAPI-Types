@@ -4,6 +4,7 @@ import { validateInteger } from "../spec/validators/integer";
 import { validateObject } from "../spec/validators/object";
 import { validateString, validateStringFormatted } from "../spec/validators/string";
 import { ISO_STRING, type IsoString } from "./Common";
+import { ECONOMY_STATS, type EconomyStats } from "./EconomyStats";
 import type { Brand, SpecObject, SpecObjectFor } from "./Util";
 
 /**
@@ -76,8 +77,13 @@ export interface SteamUser {
 
     memberSince: IsoString | null;
 
+    /** @example "director" */
+    groupName: string | null;
+
     /** Information about a Steam user's in-game activity. */
     analytics: SteamUserAnalytics | null;
+
+    economyStats: EconomyStats;
 }
 
 export const STEAM_USER = {
@@ -105,13 +111,24 @@ export const STEAM_USER = {
                 ...ISO_STRING.schema,
                 nullable: true,
             },
+            groupName: STRING(0, 64, "director"),
             analytics: {
                 ...STEAM_USER_ANALYTICS.schema,
                 description: "Information about a Steam user's in-game activity.",
                 nullable: true,
             },
+            economyStats: ECONOMY_STATS.schema,
         },
-        required: ["id", "username", "avatar", "location", "memberSince", "analytics"],
+        required: [
+            "id",
+            "username",
+            "avatar",
+            "location",
+            "memberSince",
+            "groupName",
+            "analytics",
+            "economyStats",
+        ],
         additionalProperties: false,
     },
     validate(input) {
@@ -123,6 +140,8 @@ export const STEAM_USER = {
         avatar: (input) => input === null || validateString(input, 0, 128),
         location: (input) => input === null || validateString(input, 0, 64),
         memberSince: (input) => input === null || ISO_STRING.validate(input),
+        groupName: (input) => input === null || validateString(input, 0, 64),
         analytics: (input) => input === null || STEAM_USER_ANALYTICS.validate(input),
+        economyStats: ECONOMY_STATS.validate.bind(ECONOMY_STATS),
     },
 } as const satisfies SpecObjectFor<SteamUser>;
