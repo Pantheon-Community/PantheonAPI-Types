@@ -13,7 +13,7 @@ export interface EarningsRequest {
 
     balanceInc: number;
 
-    groupName: string;
+    groupName: string | null;
 }
 
 export const EARNINGS_REQUEST = {
@@ -26,7 +26,7 @@ export const EARNINGS_REQUEST = {
                 ...INTEGER,
                 minimum: 1,
             },
-            groupName: STRING(0, 64, "group"),
+            groupName: { ...STRING(0, 64, "group"), nullable: true },
         },
         required: ["steamId", "username", "balanceInc", "groupName"],
         additionalProperties: false,
@@ -38,6 +38,6 @@ export const EARNINGS_REQUEST = {
         steamId: STEAM_ID_64.validate,
         username: STEAM_USER.subValidators.username,
         balanceInc: (input) => validateInteger(input, 1),
-        groupName: (input) => validateString(input, 0, 64),
+        groupName: (input) => input === null || validateString(input, 0, 64),
     },
 } as const satisfies SpecObjectFor<EarningsRequest>;

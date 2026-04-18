@@ -112,7 +112,7 @@ export const STEAM_USER = {
                 ...ISO_STRING.schema,
                 nullable: true,
             },
-            groupName: STRING(0, 64, "director"),
+            groupName: { ...STRING(0, 64, "director"), nullable: true },
             analytics: {
                 ...STEAM_USER_ANALYTICS.schema,
                 description: "Information about a Steam user's in-game activity.",
