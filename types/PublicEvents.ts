@@ -216,6 +216,7 @@ export const EVENT_RECONCILE = eventObject({
     outcome: eventEnum(["started", "retry"]),
     reason: eventString(2000, 1),
 });
+export const EVENT_CANCEL = eventObject({ reason: eventString(2000, 1) });
 export const EVENT_SERVER_PATCH = eventObject({
     enabled: EVENT_BOOLEAN,
     pluginTokenId: eventNullable(eventInteger(1)),
